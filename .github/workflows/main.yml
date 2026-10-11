@@ -1,29 +1,51 @@
+
 name: Build KaamSaathi APK
 
 on:
-workflow_dispatch:
-push:
-branches:
-- main
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
-- name: Checkout source
-uses: actions/checkout@v4
+  build:
+    runs-on: ubuntu-latest
 
-  - name: Set up Java
-    uses: actions/setup-java@v4
-    with:
-      distribution: temurin
-      java-version: '17'
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-  - name: Build APK
-    run: gradle assembleDebug
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
 
-  - name: Upload APK
-    uses: actions/upload-artifact@v4
-    with:
-      name: KaamSaathi-APK
-      path: app/build/outputs/apk/debug/*.apk
+      - name: Check project files
+        run: |
+          echo "Checking Android project files"
+          ls -la
+          ls -la app
+
+      - name: Build APK
+        run: |
+          if [ -f gradlew ]; then
+            chmod +x gradlew
+            ./gradlew assembleDebug
+          elif [ -f app/gradlew ]; then
+            cd app
+            chmod +x gradlew
+            ./gradlew assembleDebug
+          else
+            gradle assembleDebug
+          fi
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: KaamSaathi-APK
+          path: |
+            app/build/outputs/apk/debug/*.apk
+            app/app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+          
