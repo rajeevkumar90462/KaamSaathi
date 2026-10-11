@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0756a8">
+<title>KaamSaathi — हर काम का सही साथी</title>
+<style>
+:root{--blue:#0756a8;--blue2:#0c78db;--orange:#f28b24;--ink:#17253a;--muted:#66758b;--bg:#f3f7fc;--line:#dfe8f3;--green:#12805c}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;color:var(--ink)}
+button,input,select,textarea{font:inherit}button{cursor:pointer}
+header{background:linear-gradient(135deg,#06458d,#0c79dc);color:white;padding:18px 16px 22px;border-radius:0 0 24px 24px}
+.brand{display:flex;align-items:center;gap:11px}.logo{width:48px;height:48px;border-radius:15px;background:white;color:var(--blue);display:grid;place-items:center;font-size:27px;box-shadow:0 4px 14px #00396a55}
+.brand h1{font-size:23px;line-height:1.1;margin:0}.brand p{margin:5px 0 0;font-size:12px;opacity:.9}
+.topline{display:flex;justify-content:space-between;align-items:center}.pill{background:#ffffff22;border:1px solid #ffffff55;border-radius:20px;padding:6px 10px;font-size:12px}
+.hero{margin-top:22px}.hero h2{font-size:24px;line-height:1.25;margin:0 0 8px}.hero p{font-size:14px;opacity:.92;margin:0}
+main{max-width:760px;margin:auto;padding:15px 14px 90px}.rolegrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:-1px}
+.role{border:0;border-radius:18px;padding:16px 13px;text-align:left;color:white;box-shadow:0 7px 16px #143a5d18;min-height:104px}.role.worker{background:linear-gradient(135deg,#0879dc,#0756a8)}.role.employer{background:linear-gradient(135deg,#ffa53e,#ec7412)}
+.role .emoji{font-size:25px}.role strong{display:block;font-size:16px;margin-top:7px}.role small{display:block;margin-top:3px;opacity:.95}
+.section{margin-top:23px}.sectionhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}.section h3{font-size:18px;margin:0}.hint{font-size:12px;color:var(--muted)}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}.cat{border:1px solid var(--line);background:white;border-radius:15px;padding:12px 4px 10px;text-align:center;color:var(--ink);min-width:0}.cat .ico{font-size:24px}.cat span:last-child{display:block;font-size:11px;font-weight:650;margin-top:6px}
+.cat.active{border-color:var(--blue2);background:#e7f3ff;box-shadow:inset 0 0 0 1px var(--blue2)}
+.card{background:white;border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:11px;box-shadow:0 3px 10px #102d4a08}.jobtop{display:flex;justify-content:space-between;gap:10px}.jobtitle{font-weight:750;font-size:16px}.price{color:var(--green);font-weight:750;white-space:nowrap}.meta{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.7}.tag{display:inline-block;font-size:11px;padding:4px 8px;border-radius:20px;background:#e8f4ff;color:#0756a8;margin:8px 4px 0 0}.btn{border:0;border-radius:12px;padding:11px 14px;font-weight:700}.primary{background:var(--blue);color:white}.orange{background:var(--orange);color:#fff}.outline{background:white;color:var(--blue);border:1px solid #a9c8e9}.btnrow{display:flex;gap:8px;margin-top:12px}.btnrow .btn{flex:1}.field{margin-bottom:12px}.field label{display:block;font-size:13px;font-weight:700;margin-bottom:6px}.field input,.field select,.field textarea{width:100%;border:1px solid #cddaea;background:white;border-radius:11px;padding:11px 12px;outline:none}.field textarea{min-height:82px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue2);box-shadow:0 0 0 3px #0c78db1c}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hidden{display:none!important}.tabs{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:center;z-index:10;padding:8px 5px calc(8px + env(safe-area-inset-bottom));}.tabsinner{display:grid;grid-template-columns:repeat(4,1fr);width:min(760px,100%)}.tab{border:0;background:transparent;color:#728198;font-size:11px;padding:5px 2px}.tab b{display:block;font-size:19px;margin-bottom:2px}.tab.active{color:var(--blue);font-weight:750}
+.notice{padding:12px 13px;border-radius:13px;background:#fff4e6;color:#81460c;font-size:12px;line-height:1.5;border:1px solid #ffdfb6;margin-top:15px}.empty{text-align:center;padding:25px 10px;color:var(--muted);font-size:14px}.profilehead{display:flex;gap:12px;align-items:center}.avatar{width:55px;height:55px;border-radius:17px;background:#e4f2ff;display:grid;place-items:center;font-size:27px}
+footer{text-align:center;font-size:11px;color:#8491a4;margin-top:24px}
+@media(max-width:390px){.categories{grid-template-columns:repeat(4,1fr);gap:6px}.cat{padding:10px 2px}.cat span:last-child{font-size:10px}.formgrid{grid-template-columns:1fr}.hero h2{font-size:22px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="topline">
+    <div class="brand"><div class="logo">🦺</div><div><h1>KaamSaathi</h1><p>हर काम का सही साथी</p></div></div>
+    <button class="pill" style="color:white;cursor:pointer" onclick="showView('loginView')">मोबाइल OTP लॉगिन</button>
+  </div>
+  <div class="hero"><h2>काम ढूँढना अब हुआ आसान!</h2><p>मज़दूर, कारीगर और काम देने वाले — सब एक जगह।</p></div>
+</header>
+<main>
+  <section id="homeView">
+    <div class="rolegrid">
+      <button class="role worker" onclick="chooseRole('worker')"><span class="emoji">👷</span><strong>मैं काम ढूँढता हूँ</strong><small>Worker / मज़दूर</small></button>
+      <button class="role employer" onclick="chooseRole('employer')"><span class="emoji">🏠</span><strong>मुझे काम करवाना है</strong><small>Employer / ग्राहक</small></button>
+    </div>
+    <section class="section">
+      <div class="sectionhead"><h3>काम की श्रेणी</h3><span class="hint">श्रेणी चुनें</span></div>
+      <div class="categories" id="categories"></div>
+    </section>
+    <section class="section">
+      <div class="sectionhead"><h3 id="jobsHeading">आस-पास के काम</h3><button class="btn outline" onclick="showView('postView')">+ काम डालें</button></div>
+      <div class="field"><label for="cityFilter">शहर / क्षेत्र</label><input id="cityFilter" placeholder="जैसे: Chandigarh, Mohali" oninput="renderJobs()"></div>
+      <div id="jobsList"></div>
+    </section>
+    <div class="notice">🔒 यह डेमो है। कॉल/WhatsApp आपके फोन में खुलेंगे। कार्ड नंबर और प्रोफ़ाइल इसी ब्राउज़र में सेव होते हैं; यह सुरक्षित ऑनलाइन सत्यापन नहीं है।</div>
+  </section>
+
+  <section id="loginView" class="hidden">
+    <div class="sectionhead"><h3>मोबाइल OTP लॉगिन / रजिस्टर</h3><button class="btn outline" onclick="showView('homeView')">वापस</button></div>
+    <div class="card">
+      <div class="profilehead"><div class="avatar">📱</div><div><strong>अपने मोबाइल नंबर से लॉगिन करें</strong><div class="meta">Worker और ग्राहक दोनों के लिए</div></div></div>
+      <div class="field" style="margin-top:16px"><label for="loginPhone">मोबाइल नंबर *</label><input id="loginPhone" type="tel" inputmode="numeric" maxlength="10" pattern="[0-9]{10}" placeholder="10 अंकों का मोबाइल नंबर"></div>
+      <button class="btn primary" style="width:100%" onclick="requestOtpDemo()">OTP भेजें</button>
+      <div class="field" style="margin-top:14px"><label for="loginOtp">6 अंकों का OTP</label><input id="loginOtp" inputmode="numeric" maxlength="6" placeholder="OTP यहाँ भरें"></div>
+      <button class="btn orange" style="width:100%" onclick="verifyOtpDemo()">OTP सत्यापित करें</button>
+      <div class="notice">ध्यान दें: यह OTP लॉगिन का HTML स्क्रीन है। वास्तविक SMS OTP अभी चालू नहीं है। असली OTP के लिए Firebase Authentication, ऐप कॉन्फ़िगरेशन और सुरक्षा सेटअप जोड़ना ज़रूरी है। यह पेज कोई असली OTP नहीं भेजता और न ही नंबर सत्यापित करता है।</div>
+    </div>
+  </section>
+
+  <section id="workerView" class="hidden">
+    <div class="sectionhead"><h3>Worker प्रोफ़ाइल बनाएँ</h3><button class="btn outline" onclick="showView('homeView')">वापस</button></div>
+    <form id="workerForm" class="card">
+      <div class="field"><label>पूरा नाम *</label><input id="wName" required placeholder="अपना नाम लिखें"></div>
+      <div class="formgrid">
+        <div class="field"><label>मोबाइल नंबर *</label><input id="wPhone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का नंबर"></div>
+        <div class="field"><label>काम की श्रेणी *</label><select id="wTrade" required></select></div>
+      </div>
+      <div class="formgrid">
+        <div class="field"><label>अनुभव</label><select id="wExp"><option>नया कामगार</option><option>1–2 साल</option><option>3–5 साल</option><option>5 साल से अधिक</option></select></div>
+        <div class="field"><label>अभी उपलब्ध?</label><select id="wStatus"><option>Online — उपलब्ध</option><option>Offline — उपलब्ध नहीं</option></select></div>
+      </div>
+      <div class="field"><label>घर का शहर</label><input id="wHome" placeholder="जहाँ रहते हैं"></div>
+      <div class="field"><label>किन शहरों में काम कर सकते हैं?</label><input id="wAreas" placeholder="जैसे: Chandigarh, Mohali, Panchkula"></div>
+      <div class="field"><label>क्या Labour Card है?</label><select id="wLabour"><option value="नहीं">नहीं</option><option value="हाँ">हाँ</option></select></div>
+<div class="field hidden" id="labourNumberWrap"><label>Labour Card नंबर *</label><input id="wLabourNumber" maxlength="24" placeholder="कार्ड नंबर दर्ज करें"></div>
+      <button class="btn primary" type="submit" style="width:100%">प्रोफ़ाइल सेव करें</button>
+    </form>
+    <div id="workerSaved"></div>
+  </section>
+
+  <section id="employerView" class="hidden">
+    <div class="sectionhead"><h3>ग्राहक / Employer</h3><button class="btn outline" onclick="showView('homeView')">वापस</button></div>
+    <div class="card"><div class="profilehead"><div class="avatar">🏡</div><div><strong>काम के लिए सही कारीगर ढूँढें</strong><div class="meta">काम की जानकारी भरें और पोस्ट करें।</div></div></div><div class="btnrow"><button class="btn primary" onclick="showView('postView')">+ नया काम पोस्ट करें</button><button class="btn outline" onclick="showView('homeView')">काम देखें</button></div></div>
+    <div class="section"><h3>Worker ढूँढें</h3><p class="hint">डेमो में Worker प्रोफ़ाइल इसी डिवाइस पर सेव होने पर दिखाई देगी।</p><div id="workersList"></div></div>
+  </section>
+
+  <section id="postView" class="hidden">
+    <div class="sectionhead"><h3>नया काम पोस्ट करें</h3><button class="btn outline" onclick="showView('homeView')">वापस</button></div>
+    <form id="jobForm" class="card">
+      <div class="field"><label>काम का नाम *</label><input id="jTitle" required placeholder="जैसे: घर में नल ठीक करवाना"></div>
+      <div class="formgrid">
+        <div class="field"><label>काम की श्रेणी *</label><select id="jTrade" required></select></div>
+        <div class="field"><label>शहर / क्षेत्र *</label><input id="jCity" required placeholder="जैसे: Sector 22, Chandigarh"></div>
+      </div>
+      <div class="field"><label>काम की जानकारी *</label><textarea id="jDetails" required placeholder="क्या काम करवाना है?"></textarea></div>
+      <div class="formgrid">
+        <div class="field"><label>अनुमानित भुगतान (₹)</label><input id="jPay" type="number" min="0" placeholder="जैसे: 800"></div>
+        <div class="field"><label>कब काम चाहिए?</label><input id="jDate" type="date"></div>
+      </div>
+      <div class="formgrid"><div class="field"><label>संपर्क नाम</label><input id="jContact" placeholder="आपका नाम"></div><div class="field"><label>ग्राहक का मोबाइल नंबर *</label><input id="jPhone" required inputmode="numeric" pattern="[0-9]{10}" maxlength="10" placeholder="10 अंकों का नंबर"></div></div>
+      <button class="btn orange" type="submit" style="width:100%">काम पोस्ट करें</button>
+    </form>
+  </section>
+
+  <section id="profileView" class="hidden">
+    <div class="sectionhead"><h3>आपका KaamSaathi</h3></div>
+    <div class="card"><div class="profilehead"><div class="avatar">🤝</div><div><strong>KaamSaathi</strong><div class="meta">हर काम का सही साथी</div></div></div><p class="meta">यह शुरुआती डेमो ऐप है। आपकी जानकारी केवल इस ब्राउज़र के स्थानीय स्टोरेज में सेव होती है, किसी ऑनलाइन सर्वर पर नहीं।</p><div class="btnrow"><button class="btn primary" onclick="showView('workerView')">Worker प्रोफ़ाइल</button><button class="btn outline" onclick="showView('employerView')">Employer विकल्प</button></div></div>
+    <div class="card"><strong>आगे जोड़ा जाएगा</strong><div class="meta">OTP लॉगिन स्क्रीन तैयार • Firebase से असली OTP जोड़ना बाकी • ऑनलाइन डेटाबेस • Admin Panel • रिपोर्ट और शिकायतें</div><button class="btn primary" style="width:100%;margin-top:12px" onclick="showView('loginView')">📱 मोबाइल OTP लॉगिन खोलें</button></div>
+    <button class="btn outline" style="width:100%" onclick="clearDemo()">इस डिवाइस का डेमो डेटा मिटाएँ</button>
+  </section>
+</main>
+<nav class="tabs"><div class="tabsinner">
+  <button class="tab active" data-view="homeView" onclick="showView('homeView')"><b>⌂</b>होम</button>
+  <button class="tab" data-view="workerView" onclick="showView('workerView')"><b>👷</b>Worker</button>
+  <button class="tab" data-view="postView" onclick="showView('postView')"><b>＋</b>काम पोस्ट</button>
+  <button class="tab" data-view="profileView" onclick="showView('profileView')"><b>☻</b>प्रोफ़ाइल</button>
+</div></nav>
+<script>
+const trades=[
+ {name:"प्लंबर",icon:"🔧"},{name:"इलेक्ट्रिशियन",icon:"⚡"},{name:"राज मिस्त्री",icon:"🧱"},
+ {name:"मज़दूर",icon:"👷"},{name:"पेंटर",icon:"🖌️"},{name:"वेल्डर",icon:"🛠️"},{name:"टाइल्स मिस्त्री",icon:"▦"}
+];
+const starterJobs=[
+ {id:1,title:"बाथरूम का नल ठीक करवाना",trade:"प्लंबर",city:"Chandigarh",details:"नल से पानी टपक रहा है। जाँच करके ठीक करना है।",pay:"₹500–800",date:"जल्द",contact:"Demo ग्राहक"},
+ {id:2,title:"कमरे की वायरिंग जाँच",trade:"इलेक्ट्रिशियन",city:"Mohali",details:"एक कमरे की वायरिंग और स्विच चेक करने हैं।",pay:"₹700 अनुमानित",date:"कल",contact:"Demo ग्राहक"},
+ {id:3,title:"दीवार की मरम्मत",trade:"राज मिस्त्री",city:"Panchkula",details:"छोटी दीवार में प्लास्टर की मरम्मत।",pay:"बातचीत से",date:"इस सप्ताह",contact:"Demo ग्राहक"}
+];
+let selectedTrade="सभी";
+const get=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}};
+const set=(k,v)=>localStorage.setItem(k,JSON.stringify(v));
+function callNumber(phone){if(!/^\\d{10}$/.test(String(phone||""))){alert("सही 10 अंकों का मोबाइल नंबर उपलब्ध नहीं है।");return;}window.location.href="tel:"+phone;}
+function chatWhatsApp(phone){let p=String(phone||"").replace(/\\D/g,"");if(!/^\\d{10}$/.test(p)){alert("सही 10 अंकों का मोबाइल नंबर उपलब्ध नहीं है।");return;}window.open("https://wa.me/91"+p,"_blank","noopener");}
+function maskCard(card){const v=String(card||"");return v.length>4?"••••"+v.slice(-4):"••••";}
+function makeWorkerId(seed){let h=2166136261;for(const ch of String(seed||Date.now())){h^=ch.charCodeAt(0);h=Math.imul(h,16777619);}return "KS-"+(h>>>0).toString(36).toUpperCase().padStart(6,"0").slice(-6);}
+function init(){
+ document.getElementById("categories").innerHTML=`<button class="cat active" onclick="filterTrade('सभी',this)"><span class="ico">🧰</span><span>सभी काम</span></button>`+trades.map(t=>`<button class="cat" onclick="filterTrade('${t.name}',this)"><span class="ico">${t.icon}</span><span>${t.name}</span></button>`).join("");
+ const opts=trades.map(t=>`<option>${t.name}</option>`).join("");
+ document.getElementById("wTrade").innerHTML=opts;document.getElementById("jTrade").innerHTML=opts;
+ if(!localStorage.getItem("ks_jobs"))set("ks_jobs",starterJobs);
+ renderJobs();renderWorkers();
+}
+function filterTrade(name,el){selectedTrade=name;document.querySelectorAll(".cat").forEach(x=>x.classList.remove("active"));el.classList.add("active");renderJobs()}
+function showView(id){
+ document.querySelectorAll("main>section").forEach(s=>s.classList.add("hidden"));document.getElementById(id).classList.remove("hidden");
+ document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("active",t.dataset.view===id));
+ if(id==="homeView")renderJobs();if(id==="employerView")renderWorkers();window.scrollTo({top:0,behavior:"smooth"});
+}
+function chooseRole(role){showView(role==="worker"?"workerView":"employerView")}
+function renderJobs(){
+ const all=get("ks_jobs",starterJobs), city=(document.getElementById("cityFilter")?.value||"").toLowerCase();
+ const worker=get("ks_worker",null);
+  if(worker && !String(worker.status||"").startsWith("Online")){document.getElementById("jobsHeading").textContent="आप Offline हैं";document.getElementById("jobsList").innerHTML='<div class="card empty">आपकी Worker प्रोफ़ाइल Offline है, इसलिए काम छिपाए गए हैं। काम देखने के लिए Worker प्रोफ़ाइल में Online चुनें।</div>';return;}
+  const areas=(worker?.areas||"").split(",").map(x=>x.trim().toLowerCase()).filter(Boolean);
+  const filtered=all.filter(j=>(selectedTrade==="सभी"||j.trade===selectedTrade)&&(!city||j.city.toLowerCase().includes(city))&&(!areas.length||areas.some(a=>j.city.toLowerCase().includes(a)||a.includes(j.city.toLowerCase()))));
+ document.getElementById("jobsHeading").textContent=selectedTrade==="सभी"?"आस-पास के काम":selectedTrade+" के काम";
+ const el=document.getElementById("jobsList");
+ if(!filtered.length){el.innerHTML='<div class="card empty">इस खोज में अभी कोई काम नहीं मिला।<br>आप नया काम पोस्ट कर सकते हैं।</div>';return}
+ el.innerHTML=filtered.map(j=>`<article class="card"><div class="jobtop"><div class="jobtitle">${esc(j.title)}</div><div class="price">${esc(j.pay||"बातचीत से")}</div></div><div class="meta">📍 ${esc(j.city)} &nbsp; • &nbsp; 🗓️ ${esc(j.date||"तय होना है")}<br>🧰 ${esc(j.trade)}<br>${esc(j.details)}</div><span class="tag">डेमो जॉब</span><div class="btnrow"><button class="btn primary" onclick="applyJob(${j.id})">काम के लिए आवेदन</button><button class="btn outline" onclick="saveJob(${j.id})">☆ सेव करें</button></div>${j.phone?`<div class="btnrow"><button class="btn outline" onclick="callNumber('${esc(j.phone)}')">📞 कॉल ग्राहक</button><button class="btn outline" onclick="chatWhatsApp('${esc(j.phone)}')">WhatsApp चैट</button></div>`:""}</article>`).join("");
+}
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function applyJob(id){let apps=get("ks_apps",[]);if(apps.includes(id)){alert("आप इस काम के लिए पहले ही आवेदन कर चुके हैं।");return}apps.push(id);set("ks_apps",apps);alert("डेमो आवेदन सेव हो गया। असली ऐप में ग्राहक को सूचना भेजने के लिए ऑनलाइन सर्वर जोड़ना होगा।")}
+function saveJob(id){let f=get("ks_favs",[]);if(!f.includes(id))f.push(id);set("ks_favs",f);alert("काम आपकी इस डिवाइस की सेव सूची में जोड़ दिया गया।")}
+document.getElementById("jobForm").addEventListener("submit",e=>{
+ e.preventDefault();const jobs=get("ks_jobs",starterJobs);
+ jobs.unshift({id:Date.now(),title:document.getElementById("jTitle").value.trim(),trade:document.getElementById("jTrade").value,city:document.getElementById("jCity").value.trim(),details:document.getElementById("jDetails").value.trim(),pay:document.getElementById("jPay").value?("₹"+document.getElementById("jPay").value):"बातचीत से",date:document.getElementById("jDate").value||"तय होना है",contact:document.getElementById("jContact").value.trim()||"ग्राहक",phone:document.getElementById("jPhone").value.trim()});
+ set("ks_jobs",jobs);e.target.reset();selectedTrade="सभी";showView("homeView");alert("काम पोस्ट हो गया! यह पोस्ट केवल इसी ब्राउज़र में सेव है।");
+});
+document.getElementById("workerForm").addEventListener("submit",e=>{
+ e.preventDefault();const w={id:Date.now(),name:document.getElementById("wName").value.trim(),phone:document.getElementById("wPhone").value,trade:document.getElementById("wTrade").value,experience:document.getElementById("wExp").value,status:document.getElementById("wStatus").value,home:document.getElementById("wHome").value.trim(),areas:document.getElementById("wAreas").value.trim(),labour:document.getElementById("wLabour").value,labourNumber:document.getElementById("wLabour").value==="हाँ"?document.getElementById("wLabourNumber").value.trim():""};
+  if(w.labour==="हाँ"&&!w.labourNumber){alert("कृपया Labour Card नंबर भरें।");return;}
+  w.workerId=makeWorkerId(w.labourNumber||w.phone);
+ set("ks_worker",w);document.getElementById("workerSaved").innerHTML=`<div class="card"><strong>प्रोफ़ाइल सेव हो गई ✓</strong><div class="meta">${esc(w.name)} • ${esc(w.trade)}<br>Worker ID: ${esc(w.workerId)}<br>Labour Card: ${w.labour==="हाँ"?"हाँ • नंबर "+maskCard(w.labourNumber):"नहीं"}<br>काम के क्षेत्र: ${esc(w.areas||"अभी नहीं चुने")}<br>${esc(w.status)}</div></div>`;
+ renderWorkers();alert("आपकी प्रोफ़ाइल इस डिवाइस पर सेव हो गई। यह अभी ऑनलाइन सत्यापित प्रोफ़ाइल नहीं है।");
+});
+function renderWorkers(){
+ const w=get("ks_worker",null),el=document.getElementById("workersList");if(!el)return;
+ if(!w){el.innerHTML='<div class="card empty">अभी इस डिवाइस पर कोई Worker प्रोफ़ाइल सेव नहीं है।</div>';return}
+ el.innerHTML=`<div class="card"><div class="profilehead"><div class="avatar">👷</div><div><strong>${esc(w.name)}</strong><div class="meta">${esc(w.trade)} • ${esc(w.experience)}</div></div></div><div class="meta">📍 घर: ${esc(w.home||"नहीं दिया")}<br>काम के क्षेत्र: ${esc(w.areas||"नहीं दिए")}<br>स्थिति: ${esc(w.status)}<br>Worker ID: ${esc(w.workerId||("KS-"+String(w.id).slice(-6)))}<br>Labour Card: ${w.labour==="हाँ"?"हाँ • नंबर "+maskCard(w.labourNumber):"नहीं"}</div><span class="tag">डेमो प्रोफ़ाइल</span><div class="btnrow"><button class="btn outline" onclick="callNumber('${esc(w.phone)}')">📞 कॉल Worker</button><button class="btn outline" onclick="chatWhatsApp('${esc(w.phone)}')">WhatsApp चैट</button></div></div>`;
+}
+function requestOtpDemo(){
+ const phone=(document.getElementById("loginPhone").value||"").trim();
+ if(!/^[0-9]{10}$/.test(phone)){alert("कृपया 10 अंकों का सही मोबाइल नंबर भरें।");return;}
+ alert("OTP स्क्रीन तैयार है, लेकिन असली SMS OTP अभी कनेक्ट नहीं है। Firebase Authentication जोड़ने के बाद ही OTP भेजा जा सकेगा।");
+}
+function verifyOtpDemo(){
+ const phone=(document.getElementById("loginPhone").value||"").trim();
+ const otp=(document.getElementById("loginOtp").value||"").trim();
+ if(!/^[0-9]{10}$/.test(phone)){alert("पहले 10 अंकों का मोबाइल नंबर भरें।");return;}
+ if(!/^[0-9]{6}$/.test(otp)){alert("कृपया 6 अंकों का OTP भरें।");return;}
+ alert("OTP सत्यापन अभी उपलब्ध नहीं है। असली OTP और सुरक्षित लॉगिन के लिए Firebase जोड़ना बाकी है।");
+}
+function clearDemo(){if(confirm("क्या इस डिवाइस में सेव सभी KaamSaathi डेमो पोस्ट, प्रोफ़ाइल और आवेदन मिटाने हैं?")){["ks_jobs","ks_worker","ks_apps","ks_favs"].forEach(k=>localStorage.removeItem(k));set("ks_jobs",starterJobs);document.getElementById("workerSaved").innerHTML="";renderJobs();renderWorkers();alert("डेमो डेटा मिटा दिया गया।")}}
+init();
+</script>
+</body>
+</html>
